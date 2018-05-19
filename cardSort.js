@@ -3,11 +3,11 @@
 
 
 // Initial Array (In Order)
-let cardArray = Array.from({ length: 72 }, (x, i) => i);
+let cardArray = Array.from({ length: 78 }, (x, i) => i);
 
 
 // Shuffle function that has the logic to shuffle
-function shuffle (array) {
+function shuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -30,4 +30,17 @@ function shuffle (array) {
 cardArray = shuffle(cardArray);
 console.log(cardArray);
 
+// Function to JQuery the values of the array to the newly created card row
 
+function createCards() {
+    for (var i = 0; i < cardArray.length; i++) {
+        let newCard = $("<div>");
+        $(newCard).addClass("shuffledCards");
+        $(newCard).attr('value', cardArray[i]);
+        $("#here").append(newCard);
+    }
+    // cardArray.forEach(function (element) {
+    //     // console.log("Successful");
+    // })
+}
+createCards();
