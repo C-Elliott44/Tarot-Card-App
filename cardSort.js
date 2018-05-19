@@ -1,6 +1,8 @@
 
 // Remember to add +1 to array index number to get correct table id row
 
+//This is the array that all the card unique values are being placed into.
+let selectedCards = [];
 
 // Initial Array (In Order)
 let cardArray = Array.from({ length: 78 }, (x, i) => i);
@@ -44,3 +46,15 @@ function createCards() {
     // })
 }
 createCards();
+
+$(document).on("click", ".shuffledCards", function () {
+    let cardValue = $(this).attr('value');
+    console.log(cardValue);
+    selectedCards.push(cardValue);
+    console.log(selectedCards);
+    // console.log(this);
+
+    // if(selectedCards.length = 10) {
+    //     $.POST("")
+    // }
+})
