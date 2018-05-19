@@ -1,0 +1,1 @@
+//sequelize orm for positions table
