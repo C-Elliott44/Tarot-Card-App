@@ -1,0 +1,23 @@
+{
+  "name": "tarot-card-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C-Elliott44/Tarot-Card-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C-Elliott44/Tarot-Card-App/issues"
+  },
+  "homepage": "https://github.com/C-Elliott44/Tarot-Card-App#readme",
+  "dependencies": {
+    "sequelize": "^4.37.8"
+  }
+}
