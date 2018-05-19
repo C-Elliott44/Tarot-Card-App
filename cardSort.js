@@ -1,6 +1,8 @@
 
 // Remember to add +1 to array index number to get correct table id row
 
+
+
 //This is the array that all the card unique values are being placed into.
 let selectedCards = [];
 
@@ -39,6 +41,7 @@ function createCards() {
         let newCard = $("<div>");
         $(newCard).addClass("shuffledCards");
         $(newCard).attr('value', cardArray[i]);
+        //#here below needs to be container for all shuffledCards.
         $("#here").append(newCard);
     }
     // cardArray.forEach(function (element) {
@@ -47,6 +50,7 @@ function createCards() {
 }
 createCards();
 
+//Need to indicate status change from default to selected for CSS representation.
 $(document).on("click", ".shuffledCards", function () {
     let cardValue = $(this).attr('value');
     console.log(cardValue);
@@ -55,6 +59,6 @@ $(document).on("click", ".shuffledCards", function () {
     // console.log(this);
 
     // if(selectedCards.length = 10) {
-    //     $.POST("")
+    //     $.post("")
     // }
 })
