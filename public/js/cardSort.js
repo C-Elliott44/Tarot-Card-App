@@ -41,6 +41,7 @@ function createCards() {
         let newCard = $("<div>");
         $(newCard).addClass("shuffledCards");
         $(newCard).attr('value', cardArray[i]);
+        $(newCard).attr('type', available);
         //#here below needs to be container for all shuffledCards.
         $("#here").append(newCard);
     }
@@ -50,15 +51,26 @@ function createCards() {
 }
 createCards();
 
+
+
 //Need to indicate status change from default to selected for CSS representation.
 $(document).on("click", ".shuffledCards", function () {
     let cardValue = $(this).attr('value');
-    console.log(cardValue);
-    selectedCards.push(cardValue);
-    console.log(selectedCards);
-    // console.log(this);
+    if (this.id === 'selected') {
+        alert("You picked this already.  Please select another card.");
+        return;
+    }
+    else {
+        cardValue = parseInt(cardValue) + 1;
+        console.log(cardValue);
+        selectedCards.push(cardValue);
+        console.log(selectedCards);
+        $(this).attr('id', 'selected');
+    }
 
-    // if(selectedCards.length = 10) {
-    //     $.post("")
-    // }
+
+    if (selectedCards.length === 10) {
+        alert("Posting the card array to the controller.");
+        // $.post("")
+    }
 })
