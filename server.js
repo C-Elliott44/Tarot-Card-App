@@ -7,8 +7,6 @@ webSever.use(express.static('public'));
 
 require("./routes/routes.js")(webSever);
 
-
-
 const mysqlDump = require('mysqldump');
  
 mysqlDump({
@@ -22,8 +20,9 @@ mysqlDump({
     // create data.sql file;
 })
 
-
 webSever.listen(PORT, function(){
     console.log(`app listening on PORT http://localhost:${PORT}`)
 });
+
+
 
