@@ -1,1 +1,0 @@
-//sequelize orm for categories table
