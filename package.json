@@ -18,9 +18,14 @@
   },
   "homepage": "https://github.com/C-Elliott44/Tarot-Card-App#readme",
   "dependencies": {
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "mysqldump": "^1.4.2",
+    "npm-package-env": "^0.4.9",
+    "passport": "^0.4.0",
+    "passport-google-oauth20": "^1.0.0",
     "sequelize": "^4.37.8"
   }
 }

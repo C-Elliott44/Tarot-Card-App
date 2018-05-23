@@ -1,26 +1,39 @@
+require ('dotenv').config();
 const  express = require('express');
- 
-const webSever = express();
+const passport = require('passport'); 
+const webServer = express();
 const PORT = process.env.PORT || 3000;
 
-webSever.use(express.static('public'));
+webServer.use(express.static('public'));
 
-require("./routes/routes.js")(webSever);
+webServer.use(passport.initialize());
+webServer.use(passport.session());
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, user);
+});
+
+
+require("./routes/routes.js")(webServer);
 
 const mysqlDump = require('mysqldump');
  
-mysqlDump({
-    host: "localhost",
-    user: "root",
-    password: "root",
-    database: "tarot",
-    dest:"./tarot.sql",
-    ifNotExist:true,
-},function(err){
-    // create data.sql file;
-})
+// mysqlDump({
+//     host: "localhost",
+//     user: "root",
+//     password: "root",
+//     database: "tarot",
+//     dest:"./tarot.sql",
+//     ifNotExist:true,
+// },function(err){
+//     // create data.sql file;
+// })  
 
-webSever.listen(PORT, function(){
+webServer.listen(PORT, function(){
     console.log(`app listening on PORT http://localhost:${PORT}`)
 });
 
