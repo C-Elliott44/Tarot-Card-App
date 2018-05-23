@@ -2,13 +2,15 @@ var Sequelize = require("sequelize");
 
 var sequelize = require("../config/connection.js");
 
-var Positions = sequelize.define("positions", {
+var Cards = require("./cards.js");
+
+var Numbers = sequelize.define("numbers", {
     name: Sequelize.STRING,
     meaning: Sequelize.STRING
 }, {
   timestamps: false
 });
 
-Positions.sync();
+Numbers.sync();
 
-module.exports = Positions;
+module.exports = Numbers;
