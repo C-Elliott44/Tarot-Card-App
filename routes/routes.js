@@ -3,25 +3,6 @@ var Types = require('../models/types.js');
 var Numbers = require('../models/numbers.js');
 var Suits = require('../models/suits.js');
 var Positions = require('../models/positions.js');
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy
-require('dotenv').config();
-
-passport.use(new GoogleStrategy({
-        clientID: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-        callbackURL: process.env.GOOGLE_CALLBACK_URL
-    },
-    function (accessToken, refreshToken, profile, cb) {
-        return cb(null, JSON.stringify(profile));
-    }
-));
-
-
-
-
-
-
 
 module.exports = function (webServer) {
 
@@ -63,22 +44,5 @@ module.exports = function (webServer) {
             console.log(result.meaning);
         });
     });
-
-    webServer.get('/auth/google',
-        passport.authenticate('google', {
-            scope: ['profile','email']
-        }));
-
-
-
-    webServer.get('/auth/google/callback',
-        passport.authenticate('google', {
-            failureRedirect: '/login'
-        }),
-        function (req, res) {
-            // Successful authentication, redirect home.
-            // res.redirect('/');
-            res.json(req.user)
-        });
 
 }
