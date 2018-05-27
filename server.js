@@ -1,5 +1,6 @@
-const  express = require('express');
+const express = require('express');
 const bodyParser = require("body-parser");
+const path = require("path");
  
 const webSever = express();
 const PORT = process.env.PORT || 3000;
@@ -10,7 +11,7 @@ webSever.use(bodyParser.text());
 
 webSever.use(express.static('public'));
 
-require("./routes/routes.js")(webSever);
+require("./routes/routes.js")(webSever, path);
 
 const mysqlDump = require('mysqldump');
  

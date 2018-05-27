@@ -4,9 +4,11 @@ var Numbers = require('../models/numbers.js');
 var Suits = require('../models/suits.js');
 var Positions = require('../models/positions.js');
 
-var sample = [1, 2, 3, 4, 5, 6];
+module.exports = function (webServer, path) {
 
-module.exports = function (webServer) {
+    webServer.get("/spread", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/spread.html"));
+      });
 
     webServer.get("/api/cards/", function (req, res) {
         var arr = JSON.parse(req.query.ids);
