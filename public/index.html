@@ -16,8 +16,9 @@
     <h1>Welcome to Tarot Card world </h1>
     <h5>("In the old dude from Jurrasic park voice")</h5>
 
-     
+
     <button id="signup">Sign Up</button>
+    <button id="login">log in</button>
 
     <div id="id01" class="newUser">
         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close newUser">&times;</span>
@@ -45,13 +46,44 @@
                     <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                 </label>
 
-                 <div class="clearfix">
+                <div class="clearfix">
                     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
                     <button type="submit" class="signupbtn">Sign Up</button>
                 </div>
             </div>
         </form>
-    </div>
+        <div id="id02" class="logIn">
+            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close user">&times;</span>
+            <form class="logIn-content" action="">
+                <div class="container">
+                    <h1>Login</h1>
+                    <hr>
+                    <label for="email">
+                        <b>Email</b>
+                    </label>
+                    <input type="text" placeholder="Enter Email" name="email" required>
+
+                    <label for="userName">
+                        <b>Username</b>
+                    </label>
+                    <input type="userName" placeholder="enter username" name="userName" required>
+
+                    <label for="password">
+                        <b>Password</b>
+                    </label>
+                    <input type="password" placeholder="Password" name="password" required>
+
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
+
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="loginbtn">Login</button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
 
 

@@ -6,17 +6,21 @@ var Positions = require('../models/positions.js');
 
 module.exports = function (webServer) {
 
-    webServer.get("/api/cards/:id/", function(req, res) {
+    webServer.get("/api/cards/:id/", function (req, res) {
         //var id = req.params.id;
-        Cards.findOne({where: {id: req.params.id}, include: [Types, Numbers, Suits]}).then(function(result) {
+        Cards.findOne({
+            where: {
+                id: req.params.id
+            },
+            include: [Types, Numbers, Suits]
+        }).then(function (result) {
             res.json(result);
             if (result.cardType === "Major Arcana") {
                 console.log(result.name);
-            }
-            else {
+            } else {
                 console.log(result.number.name + " of " + result.suit.name);
             }
-            
+
             console.log(result.meaning);
             console.log(result.type.name);
             console.log(result.type.meaning);
@@ -32,10 +36,9 @@ module.exports = function (webServer) {
 
 
 
-
-    webServer.get("/api/positions/:id/", function(req, res) {
+    webServer.get("/api/positions/:id/", function (req, res) {
         var id = req.params.id;
-        Positions.findById(id).then(function(result) {
+        Positions.findById(id).then(function (result) {
             res.json(result);
             console.log(result.name);
             console.log(result.meaning);
@@ -43,5 +46,3 @@ module.exports = function (webServer) {
     });
 
 }
-
-
