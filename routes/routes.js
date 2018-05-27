@@ -4,13 +4,21 @@ var Numbers = require('../models/numbers.js');
 var Suits = require('../models/suits.js');
 var Positions = require('../models/positions.js');
 
+var sample = [1, 2, 3, 4, 5, 6];
+
 module.exports = function (webServer) {
 
-    webServer.get("/api/cards/:id/", function(req, res) {
-        //var id = req.params.id;
-        Cards.findOne({where: {id: req.params.id}, include: [Types, Numbers, Suits]}).then(function(result) {
-            res.json(result);
-            if (result.cardType === "Major Arcana") {
+    webServer.get("/api/cards/", function (req, res) {
+        var arr = JSON.parse(req.query.ids);
+        Cards.findAll({where: {id: arr}, include: [Types, Numbers, Suits]}).then(function(result) {
+            var sortedResults = arr.map(function(reqId) {
+                return result.find(function(r) {
+                    return r.id === reqId;
+                });
+            });
+
+            res.json(sortedResults);
+        /*    if (result.cardType === "Major Arcana") {
                 console.log(result.name);
             }
             else {
@@ -25,14 +33,14 @@ module.exports = function (webServer) {
                 console.log(result.number.meaning);
                 console.log(result.suit.name);
                 console.log(result.suit.meaning);
-            }
+            }*/
         });
     });
 
 
 
 
-
+// we probably don't need this anymore
     webServer.get("/api/positions/:id/", function(req, res) {
         var id = req.params.id;
         Positions.findById(id).then(function(result) {

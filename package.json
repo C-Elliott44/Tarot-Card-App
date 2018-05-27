@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/C-Elliott44/Tarot-Card-App#readme",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.3",
     "mysqldump": "^1.4.2",
