@@ -20,13 +20,13 @@ module.exports = function (webServer, path) {
             });
 
             res.json(sortedResults);
-        /*    if (result.cardType === "Major Arcana") {
+        /*
+            if (result.cardType === "Major Arcana") {
                 console.log(result.name);
-            }
-            else {
+            } else {
                 console.log(result.number.name + " of " + result.suit.name);
             }
-            
+
             console.log(result.meaning);
             console.log(result.type.name);
             console.log(result.type.meaning);
@@ -42,10 +42,9 @@ module.exports = function (webServer, path) {
 
 
 
-// we probably don't need this anymore
-    webServer.get("/api/positions/:id/", function(req, res) {
+    webServer.get("/api/positions/:id/", function (req, res) {
         var id = req.params.id;
-        Positions.findById(id).then(function(result) {
+        Positions.findById(id).then(function (result) {
             res.json(result);
             console.log(result.name);
             console.log(result.meaning);
@@ -53,5 +52,3 @@ module.exports = function (webServer, path) {
     });
 
 }
-
-
