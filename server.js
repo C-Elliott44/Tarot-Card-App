@@ -1,7 +1,12 @@
 const  express = require('express');
+const bodyParser = require("body-parser");
  
 const webSever = express();
 const PORT = process.env.PORT || 3000;
+
+webSever.use(bodyParser.urlencoded({ extended: true }));
+webSever.use(bodyParser.json());
+webSever.use(bodyParser.text());
 
 webSever.use(express.static('public'));
 
