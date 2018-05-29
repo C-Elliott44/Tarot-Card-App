@@ -1,0 +1,43 @@
+body {
+    color: red;
+}
+
+.container {
+    position:fixed;
+    position:absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+}
+
+.column {
+    float: left;
+    width: 25%;
+    height: 100%;
+}
+
+.row {
+    height: 25%;
+    padding: auto;
+}
+
+.card {
+    
+    height: 100px;
+    width: 56px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.front {
+    background-image: url(../images/tarot_card_back.jpg);
+    background-size: cover;
+}
+
+.back {
+    background-size: cover;
+}
+
+

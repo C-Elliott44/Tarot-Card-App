@@ -1,3 +1,8 @@
+
+const bodyParser = require("body-parser");
+const path = require("path");
+ 
+const webSever = express();
 require('dotenv').config();
 const express = require('express');
 const webServer = express();
@@ -6,13 +11,21 @@ const authRoutes = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 const passport = require('./passport');
 
+webSever.use(bodyParser.urlencoded({ extended: true }));
+webSever.use(bodyParser.json());
+webSever.use(bodyParser.text());
+
+webSever.use(express.static('public'));
+
+require("./routes/routes.js")(webSever, path);
+ 
+
 webServer.use(express.static('public'));
 webServer.use(cookieParser());
 webServer.use(passport.initialize());
 webServer.use(passport.session());
 webServer.use('/auth', authRoutes)
 
-require("./routes/routes.js")(webServer);
 
 // const mysqlDump = require('mysqldump');
 

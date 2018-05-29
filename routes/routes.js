@@ -4,17 +4,23 @@ var Numbers = require('../models/numbers.js');
 var Suits = require('../models/suits.js');
 var Positions = require('../models/positions.js');
 
-module.exports = function (webServer) {
+module.exports = function (webServer, path) {
 
-    webServer.get("/api/cards/:id/", function (req, res) {
-        //var id = req.params.id;
-        Cards.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: [Types, Numbers, Suits]
-        }).then(function (result) {
-            res.json(result);
+    webServer.get("/spread", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/spread.html"));
+      });
+
+    webServer.get("/api/cards/", function (req, res) {
+        var arr = JSON.parse(req.query.ids);
+        Cards.findAll({where: {id: arr}, include: [Types, Numbers, Suits]}).then(function(result) {
+            var sortedResults = arr.map(function(reqId) {
+                return result.find(function(r) {
+                    return r.id === reqId;
+                });
+            });
+
+            res.json(sortedResults);
+        /*
             if (result.cardType === "Major Arcana") {
                 console.log(result.name);
             } else {
@@ -29,7 +35,7 @@ module.exports = function (webServer) {
                 console.log(result.number.meaning);
                 console.log(result.suit.name);
                 console.log(result.suit.meaning);
-            }
+            }*/
         });
     });
 
