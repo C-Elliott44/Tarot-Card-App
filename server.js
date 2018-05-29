@@ -1,33 +1,32 @@
+// do not change or delete this if statement. It is needed for development and will not affect the final product.
+if(!process.env.PORT){
+    require('dotenv').config();
+  }
+  const bodyParser = require("body-parser");
+  const path = require("path");
+  const express = require('express');
+  const webServer = express();
+  const PORT = process.env.PORT || 3000;
+  const authRoutes = require('./routes/authRoutes');
+  const cookieParser = require('cookie-parser');
+  const passport = require('./passport');
+  
+  webServer.use(bodyParser.urlencoded({ extended: true }));
+  webServer.use(bodyParser.json());
+  webServer.use(bodyParser.text());
+  
+  webServer.use(express.static('public'));
+  
+  require("./routes/routes.js")(webServer, path);
+   
+  
+  webServer.use(express.static('public'));
+  webServer.use(cookieParser());
+  webServer.use(passport.initialize());
+  webServer.use(passport.session());
+  webServer.use('/auth', authRoutes)
 
-const bodyParser = require("body-parser");
-const path = require("path");
- 
-const webSever = express();
-require('dotenv').config();
-const express = require('express');
-const webServer = express();
-const PORT = process.env.PORT || 3000;
-const authRoutes = require('./routes/authRoutes');
-const cookieParser = require('cookie-parser');
-const passport = require('./passport');
-
-webSever.use(bodyParser.urlencoded({ extended: true }));
-webSever.use(bodyParser.json());
-webSever.use(bodyParser.text());
-
-webSever.use(express.static('public'));
-
-require("./routes/routes.js")(webSever, path);
- 
-
-webServer.use(express.static('public'));
-webServer.use(cookieParser());
-webServer.use(passport.initialize());
-webServer.use(passport.session());
-webServer.use('/auth', authRoutes)
-
-
-// const mysqlDump = require('mysqldump');
+  // const mysqlDump = require('mysqldump');
 
 // mysqlDump({
 //     host: "localhost",
@@ -40,6 +39,10 @@ webServer.use('/auth', authRoutes)
 //     // create data.sql file;
 // })  
 
-webServer.listen(PORT, function () {
-    console.log(`app listening on PORT http://localhost:${PORT}`)
-});
+
+  webServer.listen(PORT, function () {
+      console.log(`app listening on PORT http://localhost:${PORT}`)
+  });
+
+
+ 
