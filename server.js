@@ -10,6 +10,13 @@ if(!process.env.PORT){
   const authRoutes = require('./routes/authRoutes');
   const cookieParser = require('cookie-parser');
   const passport = require('./passport');
+  const session = require('express-session');
+
+  webServer.use(session({
+    secret: 'keyboard cat' ,
+    resave: true,
+    saveUninitialized:true
+  }))
   
   webServer.use(bodyParser.urlencoded({ extended: true }));
   webServer.use(bodyParser.json());
