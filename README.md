@@ -1,15 +1,29 @@
 # Tarot-Card-App
-
-
-##### Create a dotenv file and copy the structure below and add your information where indicated 'your' 
+ 
+### Create a dotenv file and copy the structures below and add your information where indicated 'your'  
 # #sequelize
-#####SEQUELIZE_DB='your Database'
-#####SEQUELIZE_USER='your user name'
-#####SEQUELIZE_PASSWORD='your password'
-#####SEQUELIZE_HOST='your host'
+#####SEQUELIZE_DB='your info'
+#####SEQUELIZE_USER='your info'
+#####SEQUELIZE_PASSWORD='your info'
+#####SEQUELIZE_HOST='your info'
 
 # #google
-####GOOGLE_CLIENT_ID='your google client id' 
-####GOOGLE_CLIENT_SECRET='your google client secret'
-####GOOGLE_CB_URL='your google callback address'
+####GOOGLE_CLIENT_ID='your info' 
+####GOOGLE_CLIENT_SECRET='your info'
+####GOOGLE_CB_URL='your info'
+
+# #twitterCredentials
+####TWITTER_CONSUMER_KEY='your info'
+####TWITTER_CONSUMER_SECRET='your info'
+####TWITTER_CALLBACK_URL='your info'
+
+   
+ # #facebookCredentials
+ ####FACEBOOK_APP_ID='your info'
+ ####FACEBOOK_APP_SECRET='your info'
+ ####FACEBOOK_CB_URL='your info'
+
+
+
+
 

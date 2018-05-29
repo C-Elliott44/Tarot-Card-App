@@ -1,6 +1,9 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const TwitterStrategy = require('passport-twitter').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
 const users = require('../models/users');
+
 
 
 
@@ -34,8 +37,24 @@ passport.use(new GoogleStrategy({
 
     }));
 
+passport.use(new TwitterStrategy({
+        consumerKey: process.env.TWITTER_CONSUMER_KEY,
+        consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+        callbackURL: process.env.TWITTER_CALLBACK_URL
+    },
+    function (token, tokenSecret, profile, done) {
+        return done(null, profile)
+    }));
 
 
+passport.use(new FacebookStrategy({
+        clientID:process.env.FACEBOOK_APP_ID,
+        clientSecret: process.env.FACEBOOK_APP_SECRET,
+        callbackURL: process.env.FACEBOOK_CB_URL
+    },
+    function (accessToken, refreshToken, profile, done) {
+        done(null, user)
+    }));
 
 
 
@@ -46,6 +65,7 @@ passport.serializeUser(function (user, cb) {
 passport.deserializeUser(function (obj, cb) {
     cb(null, obj);
 });
+
 
 
 module.exports = passport;
