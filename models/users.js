@@ -12,7 +12,16 @@ const User = sequelize.define("users", {
     },
     name: {
         type: Sequelize.STRING
-    }
+    },
+    twitter_id: {
+        type: Sequelize.STRING
+    },
+
+    name: { 
+        type: Sequelize.STRING
+
+    },
+
 }, {
     timestamps: false
 });

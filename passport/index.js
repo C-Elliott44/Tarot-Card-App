@@ -40,15 +40,37 @@ passport.use(new GoogleStrategy({
 passport.use(new TwitterStrategy({
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+        userProfileURL: process.env.TWITTTER_USER_EMAIL,
         callbackURL: process.env.TWITTER_CALLBACK_URL
     },
     function (token, tokenSecret, profile, done) {
-        return done(null, profile)
-    }));
+        users.findOrCreate({
+        where: {
+            $or:[
+                {email: profile.emails[0].value},
+                {twitter_id: profile.id.toString()}
+            ]  
+        },
+        defaults :{
+            email: profile.emails[0].value,
+            twitter_id:profile.id.toString(),
+            name: profile.displayName
+
+        }
+    })
+        .spread(function (user, created) {
+            return done(null, user)
+        })
+
+    }
+));
+
+
+
 
 
 passport.use(new FacebookStrategy({
-        clientID:process.env.FACEBOOK_APP_ID,
+        clientID: process.env.FACEBOOK_APP_ID,
         clientSecret: process.env.FACEBOOK_APP_SECRET,
         callbackURL: process.env.FACEBOOK_CB_URL
     },

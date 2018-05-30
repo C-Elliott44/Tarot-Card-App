@@ -6,7 +6,9 @@ router.get('/google', passport.authenticate('google', {
   scope: ["profile", "email"]
 }))
 
-router.get('/twitter', passport.authenticate('twitter'));
+router.get('/twitter', passport.authenticate('twitter', {
+  scope: ["profile", "email"]
+}));
 
 router.get('/facebook', passport.authenticate('facebook'));
 
@@ -34,6 +36,7 @@ router.get('/twitter/callback',
     failureRedirect: '/login'
   }),
   function (req, res) {
+    // res.json(req.user);
     res.redirect('/')
   });
 
@@ -41,11 +44,9 @@ router.get('/twitter/callback',
 router.get('/facebook/callback',
   passport.authenticate('facebook', {
     failureRedirect: '/login'
-  }, function
-  (req,res,next){
+  }, function (req, res, next) {
     res.redirect('/')
-  }
-));
+  }));
 
 
 module.exports = router;
