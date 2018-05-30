@@ -6,53 +6,67 @@
       for(var i = 0; i < 78; i++) {
         $( "#fallingCard" + [i] *2 ).animate({
           right: 25 + "vw"
-        }, 1500 );
+        }, 1000 );
         $( "#fallingCard" + [i] *2 ).animate({
           top: "-=" + i * 4 + "px"
-        }, 1500 );
+        }, 1000 );
       }
       stepOne();
-      for (var a = 0; a<78; a++) {
-        stepThree()
-      };
-      
+      thisIsStupid();
+      console.log(cardShuffleArray);
+      $("#shuffleContainer").delay(8400).fadeOut(1500);
     });
   });
 
-//  $( "#fallingCard" + [i] *2 ).animate({
-//    top: +367 - (i * .5) + 'px',
-//    right: 44 + "vw"
-//  }, 1500 );
-
-
 function stepOne() {
-  for(var i = 1; i < 78; i++) {
-    $( "#fallingCard" + [i *2 + 1] ).animate({
+  for(var i = 0; i < 78; i++) {
+    $( "#fallingCard" + [(i *2) + 1]).animate({
       right: 65 + "vw"
-    }, 1500 );
-    $( "#fallingCard1").animate({
-      right: 65 + "vw"
-    }, 1500 );
+    }, 1000 );
     $( "#fallingCard" + [i *2 + 1] ).animate({
       top: "-=" + i * 4 + "px"
-    }, 1500 );
+    }, 1000 );
   }
 };
 
-//$( "#fallingCard" + [i *2 + 1] ).animate({
-//  top: +367 - (i * .5) + 'px',
-//  right: 44 + "vw"
-//}, 1500 );
-
-function stepThree() {
-    var i = 0;
-    $("#fallingCard" + [i]).animate({
-      top: +367 - (i * .5) + 'px',
-      right: 44 + "vw"
-    }, 1500);
-    i++
-};
 
 function thisIsStupid() {
-  
+  for( var b = 0; b < 78; b++) {
+    do_something(b);
+  } 
 }
+
+function do_something(j) {
+  setTimeout(function() {
+    $("#fallingCard" + cardShuffleArray[j]).animate({
+      top: +367 - (j * .5) + 'px',
+      right: 44 + "vw",
+      zIndex: j
+    }, 150);
+  }, 100 *j);
+}
+
+
+
+let cardShuffleArray = Array.from({ length: 78 }, (x, i) => i);
+
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+cardShuffleArray = shuffle(cardShuffleArray);

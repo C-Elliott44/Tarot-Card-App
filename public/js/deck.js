@@ -36,3 +36,13 @@ function shuffle(array) {
 
 cardArray = shuffle(cardArray);
 
+
+
+
+
+
+
+
+
+
+
