@@ -16,7 +16,9 @@ $(document).ready(function(){
 
 function allCardsPicked() {
     if(allCardData.length === 10) {
-        $( "#cards" ).fadeOut( 1600 );
+        $( "#cards" ).fadeOut( 1600, function(){
+            $( "div.container" ).fadeIn( "slow" );
+        } );
     };
 };
 var allCardData = [];
