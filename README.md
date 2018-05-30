@@ -2,7 +2,7 @@
  
 ### Create a dotenv file and copy the structures below and add your information where indicated 'your'  
 ###sequelizeCredentials
-* SEQUELIZE_DB='your info'+
+* SEQUELIZE_DB='your info'
 * SEQUELIZE_USER='your info'
 * SEQUELIZE_PASSWORD='your info'
 * SEQUELIZE_HOST='your info'
