@@ -1,6 +1,4 @@
-body {
-    color: red;
-}
+
 
 .container {
     position:fixed;
@@ -22,7 +20,7 @@ body {
     padding: auto;
 }
 
-.card {
+.spread {
     
     height: 100px;
     width: 56px;
@@ -41,3 +39,61 @@ body {
 }
 
 
+/*Cameron Added the css below*/
+
+body {
+    height: -webkit-fill-available;
+    background-image: url(../images/tarot_cards.jpg);
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#title {
+    color: rgba(255, 255, 255, .5);
+    font-size: 70px;
+    position: absolute;
+    top: 143px;
+    width: 100vw;
+    text-align: center;
+}
+
+#selectionBox {
+    width: 100vw;
+    margin-top: 350px;
+    overflow: hidden;
+    position: absolute;
+    /* background-color: rgba(26, 107, 107, .7); */
+}
+
+#catagoryheader {
+    width: 100vw;
+    text-align: center;
+    color: rgba(255, 255, 255, .5);
+}
+
+#catagoryForm {
+    float: left;
+    width: 75vw;
+    overflow: auto;
+    margin-left: 12vw;
+}
+
+select {
+    text-align: center;
+    width: 75vw;
+    height: 35px;
+    font-size: x-large;
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255, .5);
+}
+
+#catagorySubmit {
+    text-align: center;
+    margin-top: 5px;
+    width: 92px;
+    height: 35px;
+    font-size: x-large;
+    background-color: rgba(0, 0, 0, .3);
+    color: rgba(255, 255, 255, .5);
+}

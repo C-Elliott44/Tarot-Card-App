@@ -1,92 +1,84 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/app.js"></script>
+    <title>Tarot Card Reading</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/stackedDeck.css">
+
 </head>
-
 <body>
+    <div class="stackedDeck">
+        
+    </div>
+    <div id="shuffleMe">
+        <h1>Shuffle Me!!</h1>
+    </div>
+    <div id="pilotFadeOut">
+        <!-- Button to open the modal login form -->
+        <button id="loginButton" onclick="document.getElementById('id01').style.display='block'">Login</button>
 
-    <h1>Welcome to Tarot Card world </h1>
-    <h5>("In the old dude from Jurrasic park voice")</h5>
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="close" title="Close Modal">&times;</span>
 
+        <!-- Modal Content -->
+        <form id="modalForm" class="modal-content animate" action="/action_page.php">
+            <div class="imgcontainer">
+            <img src="../photos/image_avatar.jpg" alt="Avatar" class="avatar">
+            </div>
 
-    <button id="signup">Sign Up</button>
-    <button id="login">log in</button>
+            <div class="modContainer">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
 
-    <div id="id01" class="newUser">
-        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close newUser">&times;</span>
-        <form class="newUser-content" action="">
-            <div class="container">
-                <h1>Sign Up</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr>
-                <label for="email">
-                    <b>Email</b>
-                </label>
-                <input type="text" placeholder="Enter Email" name="email" required>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
 
-                <label for="psw">
-                    <b>Password</b>
-                </label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+            </div>
 
-                <label for="psw-repeat">
-                    <b>Repeat Password</b>
-                </label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
-
-                <div class="clearfix">
-                    <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
-                </div>
+            <div class="modContainer" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
             </div>
         </form>
-        <div id="id02" class="logIn">
-            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close user">&times;</span>
-            <form class="logIn-content" action="">
-                <div class="container">
-                    <h1>Login</h1>
-                    <hr>
-                    <label for="email">
-                        <b>Email</b>
-                    </label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-
-                    <label for="userName">
-                        <b>Username</b>
-                    </label>
-                    <input type="userName" placeholder="enter username" name="userName" required>
-
-                    <label for="password">
-                        <b>Password</b>
-                    </label>
-                    <input type="password" placeholder="Password" name="password" required>
-
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                    </label>
-
-                    <div class="clearfix">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-                        <button type="submit" class="loginbtn">Login</button>
-                    </div>
-                </div>
-            </form>
         </div>
-
-
-
+        <div>
+            <h1 id="title">
+                TAROT DAILY
+            </h1>
+        </div>
+        <div id="selectionBox">    
+                <h2 id="catagoryheader">What Do You Want To Learn More About</h2>
+<!--The "actiasdon" is supposed to be the "action" broke it so i could play with animations -->
+                <form  id="catagoryForm"                  actiasdon="/catagory">
+                    <select name="catagory">
+                        <option value="love">Love</option>
+                        <option value="hate">Hate</option>
+                        <option value="power">Power</option>
+                        <option value="education">Education</option>
+                        <option value="money">Money</option>
+                        <option value="lust">Lust</option>
+                        <option value="death">Death</option>
+                        <option value="birth">Birth</option>
+                        <option value="retirement">Retirement</option>
+                        <option value="thatItchYouGotInMexico">That Itch You Got In Mexico</option>
+                    </select>
+                <input id="catagorySubmit" type="button" value="Submit">
+                </form>
+        </div>
+    </div>
 </body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="./js/modal.js"></script>
+<script src="./js/pilotFadeOut.js"></script>
+<script src="./js/shuffleCards.js"></script>
 
 </html>
