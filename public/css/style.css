@@ -1,8 +1,5 @@
-
-
 .container {
-    position:fixed;
-    position:absolute;
+    position: fixed;;
     top:0;
     right:0;
     bottom:0;
@@ -13,30 +10,61 @@
     float: left;
     width: 25%;
     height: 100%;
+    
+}
+
+.row3 {
+    height: 33%;
 }
 
 .row {
     height: 25%;
-    padding: auto;
 }
 
-.spread {
-    
-    height: 100px;
-    width: 56px;
+
+
+.yep {
+    height: 150px;
+    width: 90px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
     margin: auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+}
+
+.nope {
+    height: 150px;
+    width: 90px;
+    margin: 1%;
+    float: left;
+    
+}
+
+.wrap {
+    height: 150px;
+    width: 190px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .front {
     background-image: url(../images/tarot_card_back.jpg);
     background-size: cover;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
 }
 
 .back {
     background-size: cover;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
 }
 
 
@@ -113,4 +141,5 @@ select {
     width: 100vw;
     text-align: center;
     margin-bottom: 40px;
-}
+} 
+
