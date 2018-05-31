@@ -1,11 +1,11 @@
-$(document).ready(function () {
-    const newUser = $("#id01")
-    newUser.hide()
-
-    $("#signup").on("click", (event) => {
-        newUser.show();
-    })
-});
+//$(document).ready(function () {
+//    const newUser = $("#id01")
+//    newUser.hide()
+//
+//    $("#signup").on("click", (event) => {
+//        newUser.show();
+//    })
+//});
 
 //dummy data
 var array = [4, 19, 40, 30, 72, 5, 10, 75, 9, 1];
