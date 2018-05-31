@@ -21,7 +21,7 @@ router.get('/google/callback',
   function (req, res) {
 
     res.cookie('id', req.user.id, {
-      maxAge: 60 * 60 * 1000 * 24
+      maxAge: 60 * 60 * 1000 * 10
     }).redirect('/');
   });
 
