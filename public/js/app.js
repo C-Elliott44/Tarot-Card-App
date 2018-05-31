@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $(document).ready(function () {
     const newUser = $("#id01")
     newUser.hide()
@@ -6,16 +5,6 @@ $(document).ready(function () {
     $("#signup").on("click", (event) => {
         newUser.show();
     })
-=======
-//$(document).ready(function () {
-//    const newUser = $("#id01")
-//    newUser.hide()
-//
-//    $("#signup").on("click", (event) => {
-//        newUser.show();
-//    })
-//});
->>>>>>> e01ed991cf6621044d2ba083a6918444218c35c6
 
     var localArr = JSON.parse(localStorage.getItem("array"));
     var array = localArr.map(Number);
@@ -32,6 +21,8 @@ $(document).ready(function () {
         }
     });
     };
+
+    $(".spread").flip();
     
 });
 
