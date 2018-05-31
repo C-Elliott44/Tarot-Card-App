@@ -15,7 +15,9 @@ $(document).ready(function(){
     stepOne();
     thisIsStupid();
     console.log(cardShuffleArray);
-    $("#shuffleContainer").delay(8400).fadeOut(1500);
+    $("#shuffleContainer").delay(8400).fadeOut(1500, function(){
+      window.location="/choices";
+    });
   });
 });
 

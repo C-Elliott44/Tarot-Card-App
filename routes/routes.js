@@ -6,6 +6,10 @@ var Positions = require('../models/positions.js');
 
 module.exports = function (webServer, path) {
 
+    webServer.get("/choices", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/testcards.html"));
+      });
+    
     webServer.get("/spread", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/spread.html"));
       });
