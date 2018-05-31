@@ -12,7 +12,7 @@ $(document).ready(function () {
     getData();
 
     function getData() {
-        $.ajax("http://localhost:3000/api/cards?ids=" + JSON.stringify(array))
+        $.ajax("api/cards?ids=" + JSON.stringify(array))
             // $.ajax("http://localhost:3000/api/cards?ids=" + localStorage.getItem("array"))
             .done(function (data) {
                 console.log(data);
