@@ -40,8 +40,8 @@ passport.use(new GoogleStrategy({
 passport.use(new TwitterStrategy({
         consumerKey: process.env.TWITTER_CONSUMER_KEY,
         consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-        userProfileURL: process.env.TWITTTER_USER_EMAIL,
-        callbackURL: process.env.TWITTER_CALLBACK_URL
+        callbackURL: process.env.TWITTER_CALLBACK_URL,
+        userProfileURL: process.env.TWITTTER_USER_EMAIL
     },
     function (token, tokenSecret, profile, done) {
         users.findOrCreate({
