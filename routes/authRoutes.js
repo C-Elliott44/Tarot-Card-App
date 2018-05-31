@@ -25,11 +25,7 @@ router.get('/google/callback',
     }).redirect('/');
   });
 
-router.get('/test', function (req, res, next) {
-  res.json(req.cookies)
-})
-
-
+ 
 
 router.get('/twitter/callback',
   passport.authenticate('twitter', {
