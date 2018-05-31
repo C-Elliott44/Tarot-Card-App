@@ -36,7 +36,7 @@ if(!process.env.PORT){
  // const mysqlDump = require('mysqldump');
 
 //  mysqlDump({
-     host: "localhost",
+//  host: "localhost",
 //     user: "root",
 //     password: "root",
 //     database: "tarot",
