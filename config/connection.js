@@ -14,7 +14,7 @@ var sequelize = new Sequelize(process.env.SEQUELIZE_DB, process.env.SEQUELIZE_US
     min: 0,
     idle: 10000
   }
-});
-};
+})
+}
 
 module.exports = sequelize;
