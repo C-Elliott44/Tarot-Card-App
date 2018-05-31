@@ -24,6 +24,7 @@
     
     height: 100px;
     width: 56px;
+    margin: auto;
     display:flex;
     justify-content:center;
     align-items:center;
