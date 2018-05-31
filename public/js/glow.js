@@ -20,11 +20,16 @@ $(document).ready(function(){
 
 function allCardsPicked() {
     if(allCardData.length === 10) {
+        localStorage.clear();
+        localStorage.setItem("array", JSON.stringify(allCardData));
         $( "#cards" ).fadeOut( 1600, function(){
-            $( "div.container" ).fadeIn( "slow" );
+            window.location="/spread";
         } );
     };
 };
+
+
+
 var allCardData = [];
 
 //function that grabs the value associated with a cards and moves it to the allCardData array when clicked

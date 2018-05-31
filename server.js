@@ -33,10 +33,10 @@ if(!process.env.PORT){
   webServer.use(passport.session());
   webServer.use('/auth', authRoutes)
 
-  // const mysqlDump = require('mysqldump');
+ // const mysqlDump = require('mysqldump');
 
-// mysqlDump({
-//     host: "localhost",
+//  mysqlDump({
+     host: "localhost",
 //     user: "root",
 //     password: "root",
 //     database: "tarot",
