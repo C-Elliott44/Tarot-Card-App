@@ -1,5 +1,6 @@
 //this adds the class 'glow' to the card that is picked, moving it up slightly and making it glow
 //Adds card data to array that will be
+//calls the functions that would proceed after the end of each step
 
 $(document).ready(function(){
     $('div#cards').on("click", ".card", function(){
@@ -14,6 +15,9 @@ $(document).ready(function(){
     });
 });
 
+//Function that happens once all 10 cards are picked by the user
+//fades out selected cards and renders the spread
+
 function allCardsPicked() {
     if(allCardData.length === 10) {
         $( "#cards" ).fadeOut( 1600, function(){
@@ -23,9 +27,7 @@ function allCardsPicked() {
 };
 var allCardData = [];
 
-function singleCardPick() {
-    
-}
+//function that grabs the value associated with a cards and moves it to the allCardData array when clicked
 
 function getValue(){
     let cardValue = $(this).attr('value');
