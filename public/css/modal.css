@@ -161,6 +161,24 @@ span.psw {
     font-weight: bold;
 }
 
+#modalMeaning {
+    font-style: italic;
+    font-size: 1.25em;
+    text-align: center;
+}
+
+#positionName {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.25em;
+}
+
+#positionMeaning {
+    font-style: italic;
+    text-align: center;
+    font-size: 1.25em;
+}
+
 #modalCardImg {
     width: 100%;
     height: auto;
