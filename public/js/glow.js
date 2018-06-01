@@ -8,7 +8,7 @@ $(document).ready(function(){
         var status = $(this).attr('value');
         $(this).attr('id', 'glow');
         console.log(status);
-        allCardData.push(status);
+        allCardData.push(parseInt(status) +1);
         allCardsPicked();
         getValue();
         }
